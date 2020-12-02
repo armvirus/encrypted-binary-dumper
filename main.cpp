@@ -4,7 +4,7 @@ std::string hex_to_string(std::uint8_t hex)
 {
 	char hex_string[4 * sizeof(std::uint8_t) + 1];
 
-	sprintf_s(hex_string, "0x%x", hex);
+	sprintf_s(hex_string, hex > 0xF ? "0x%x" : "0x0%x", hex);
 
 	return std::string(hex_string);
 }
@@ -16,7 +16,7 @@ std::uint8_t encrypt_byte(std::uint8_t byte)
 
 int main(int argument_count, char** argument_array)
 {
-	if (argument_count < 2)
+	if (argument_count < 3)
 	{
 		printf("[+] usage: binary-dumper.exe binary_name.exe output_name");
 		return -1;
@@ -52,16 +52,6 @@ int main(int argument_count, char** argument_array)
 		{
 			normal_buffer_string += "\t";
 			encrypted_buffer_string += "\t";
-		}
-
-		if (current_byte <= 0xF)
-		{
-			normal_buffer_string += " ";
-		}
-
-		if (encrypted_current_byte <= 0xF)
-		{
-			encrypted_buffer_string += " ";
 		}
 
 		normal_buffer_string += hex_to_string(current_byte) + ", ";
