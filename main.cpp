@@ -35,8 +35,8 @@ int main(int argument_count, char** argument_array)
 
 	printf("[+] mz [0x%x]\n", mz_sig);
 
-	std::string normal_buffer_string = "std::uint8_t normal_buffer[] = {\n";
-	std::string encrypted_buffer_string = "std::uint8_t encrypted_buffer[] = {\n";
+	std::string normal_buffer_string = "std::uint8_t normal_buffer[] = {\n\t";
+	std::string encrypted_buffer_string = "std::uint8_t encrypted_buffer[] = {\n\t";
 
 	for (int i = 0; i < buffer.size(); i++)
 	{
@@ -47,11 +47,6 @@ int main(int argument_count, char** argument_array)
 		{
 			normal_buffer_string += "\n\t";
 			encrypted_buffer_string += "\n\t";
-		}
-		else if (i == 0)
-		{
-			normal_buffer_string += "\t";
-			encrypted_buffer_string += "\t";
 		}
 
 		normal_buffer_string += hex_to_string(current_byte) + ", ";
