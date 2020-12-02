@@ -1,5 +1,5 @@
 # encrypted-binary-dumper
-Takes a binary and dumps its opcodes to a file (encrypted / not encrypted).
+Takes a binary and dumps its opcodes to a file (encrypted binary (-enc.bin) extension / not encrypted (.bin) extension).
 This project can be used to store binaries in a executable in a more stealthy way, which can't be found as easily as a non-encrypted buffer.
 
 usage for decrypting the buffer for proper usage:
